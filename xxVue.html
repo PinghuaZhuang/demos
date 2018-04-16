@@ -1,0 +1,256 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue实现</title>
+  <style>
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- <form> -->
+    <h2>{{title}}</h2>
+    <p>{{text}}</p>
+    <input type="text" v-model="number">
+    <button v-on:click="increase">增加</button>
+    <button v-on:click="decrease">减少</button>
+    <!-- </form> -->
+    <p>我点的时候就会变化{{number}}---{{number}}</h2>
+  </div>
+  <script>
+    // 构造watcher类，用来观察数据变化来（本质更新dom的指令属性或innertext)
+    /**
+     * vm: vue实例
+     * name: 指令名
+     * el: 节点
+     * exp: 指令对应的参数
+     * attr: 指令值（绑定的属性名）
+    **/
+    class Watcher {
+      constructor({
+        vm,
+        name,
+        el,
+        exp,
+        attr,
+      }) {
+        this.vm = vm;
+        this.el = el;
+        this.name = name;
+        this.exp = exp;
+        this.attr = attr;
+      }
+      // 更新text,或更新属性
+      update() {
+        // 改变节点的属性
+        if (this.el.nodeType === 1) {
+          // this.el.value = this.vm.$data[this.exp]
+          if (this.name === 'v-model') {
+            console.log('value', this.el)
+            this.el.value = this.vm.$data[this.attr]
+          }
+          this.el[this.attr] = this.vm.$data[this.exp]
+        }
+        // 文本节点
+        else {
+          let text = this.attr;
+          // 获取{{变量}}，用正则去匹配；watcher去观察{{变量}}(包裹元素)，
+          let newText = text.replace(/\{\{(\w+)\}\}/g, (match, p0)=> {
+            // 替换属性为真正的属性值
+            return this.vm.$data[p0]
+          })
+          this.el.textContent = newText;
+        }
+      }
+    }
+
+
+    function hasDirective(attrs, dir) {
+      return attrs.some(attr => attr.name.indexOf(dir) !== -1)
+    }
+    function getDirectiveParams(attrs, dir) {
+      dir = attrs.find(attr => attr.name.indexOf(dir) !== -1).name
+      return dir.split(':')[1] ? dir.split(':')[1].split('.')[0] : '';
+    }
+    function getDirectiveValue(node, attrs, dir) {
+      return attrs.find(attr => attr.name.indexOf(dir) !== -1).value;
+    }
+
+    class DuVue {
+      constructor(options) {
+        this._init(options);
+      }
+      _init(options) {
+        this.$options = options
+        this.$data = options.data
+        this.$methods = options.methods
+        this.$el = document.querySelector(options.el)
+
+        this._binding = {}
+        this._observe(this.$data)
+        // 代理所有数据
+        this._proxyData(this.$data, this)
+
+        this._compile(this.$el)
+      }
+      _observe(obj){
+        // 递归遍历
+        // let value;
+        for (const key in obj) {
+          let value;
+          if (obj.hasOwnProperty(key)){
+            // 利用原理 劫持数据---发布订阅
+
+            value = obj[key];
+            if (typeof value === 'object') {
+              console.log('value', value)
+              this._observe(value)
+            }
+
+            // 订阅(key)数据
+            if (!this._binding[key]) {this._binding[key]= []};
+            let binding = this._binding[key]
+            // 重写getter, setter
+            Object.defineProperty(obj, key, {
+              enumerable: true,
+              configurable: true,
+              get() {
+                return value
+              },
+              set(newVal) {
+                if (value === newVal) return false;
+                value = newVal
+                console.log('newvalue', value)
+                // 主要value更新，就发布通知(监听这个key的所有的)watcher更新（改变dom）
+                binding.forEach(watcher => {
+                  console.log('watcher', watcher)
+                  watcher.update()
+                });
+              }
+            })
+          }
+        }
+      }
+      // 实例代理数据
+      _proxyData(data, vm) {
+        // data身上的所有属性全部挂载到vm实例上
+        for (const key in data) {
+          // let val = data[key];
+          // ctx.key = val;
+          Object.defineProperty(vm, key, {
+            configurable: true,
+            enumerable: true,
+            get() {
+              return data[key];
+            },
+            set(newVal) {
+              data[key] = newVal;
+              vm._observe(newVal)
+            }
+          })
+        }
+      }
+      _compile(root){
+        // 获取所有节点
+        let nodes = root.childNodes
+
+        // 递归编译
+        Array.from(nodes).forEach(node => {
+          // 针对每一个节点进行处理
+
+          // 元素节点
+          if (node.nodeType === 1) {//只考虑绑定了一个指令
+            // 获取节点的属性集合
+
+            const attributes = Array.from(node.attributes);
+
+            // 指令进行编译
+            if (hasDirective(attributes, 'v-bind')) {
+              const attrVal = getDirectiveValue(node, attributes, 'v-bind');
+              const exp = getDirectiveParams(attributes, 'v-bind');
+              // const
+              node.setAttribute(exp, this.$data[attrVal])
+              this._binding[attrVal].push(new watcher({
+                vm: this,
+                el: node,
+                exp,
+                attr: attrVal
+              }))
+            }
+            if (hasDirective(attributes, 'v-on')) {
+              const eventName = getDirectiveParams(attributes, 'v-on');
+              node.addEventListener(eventName, (e) => {
+                this.$methods[getDirectiveValue(node, attributes, 'v-on')].call(this)
+              })
+            }
+            if (node.hasAttribute('v-model') && node.tagName === 'INPUT' || node.tagName === 'TEXTAREA') {
+              let attrVal = node.getAttribute('v-model');
+              this._binding[attrVal].push(new Watcher({
+                  vm: this,
+                  el: node,
+                  attr: attrVal,
+                  name: 'v-model'
+                }))
+              node.addEventListener('input', e=> {
+                this.$data[attrVal] = node.value;
+              })
+              node.value = this.$data[attrVal]
+            }
+
+            // 递归接着处理
+            if (node.hasChildNodes()) {
+              this._compile(node)
+            }
+          }
+
+          // 文本节点
+          if (node.nodeType === 3) {
+            let text = node.textContent;
+
+            let keyArr = [];
+            // 获取{{变量}}，用正则去匹配；watcher去观察{{变量}}(包裹元素)，
+            let newText = text.replace(/\{\{(\w+)\}\}/g, (match, p0)=> {
+              keyArr = [...keyArr, p0];
+              // 替换属性为真正的属性值
+              return this.$data[p0]
+            })
+            node.textContent = newText;
+
+            // 把整个文本节点进行监控{{v1}}-----{{v2}}；添加到订阅到数组里等待通知
+            keyArr.forEach(key => {
+              // !this._binding[key] && (this._binding[key] = [])
+              this._binding[key].push(new Watcher({
+                vm: this,
+                el: node,
+                attr: text
+              }))
+            })
+          }
+        })
+      }
+    }
+    window.onload = function(){
+      var duVue = new DuVue({
+        el: '#app',
+        data: {
+          number: 0,
+          title: '手写vue',
+          text: '用到es6 class',
+          obj: {a:1}
+        },
+        methods: {
+          increase() {
+            console.log('click-increase')
+            this.number++
+          },
+          decrease() {
+            this.number--
+          }
+        }
+      })
+      console.log(duVue)
+    }
+  </script>
+</body>
+</html>
