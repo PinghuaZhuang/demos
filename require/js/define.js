@@ -1,8 +1,10 @@
-'use strict'
+'use strict';
 
+/* eslint-disable no-undef */
 define( [
-    // './module.export.js'
-], function( a, factory ) {
+
+
+], function ( ) {
     'use strict';
 
     console.log( 'aaaaa:' );

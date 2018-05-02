@@ -1,8 +1,5 @@
-
-var hello = {
+let hello = {
     name: 'xxx'
-}
+};
 
-// function hello() {
-//     return 123;
-// }
+console.log( 'hello:', hello );

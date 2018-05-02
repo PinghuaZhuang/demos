@@ -1,4 +1,6 @@
+/* eslint-disable no-undef */
 require.config( {
+
     // baseUrl: '../node_modules',
 
     // 注意不能添加 .js
