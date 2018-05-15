@@ -22,9 +22,9 @@ import { mapMutations, mapActions } from 'vuex';
 
 export default {
     name: 'HelloWorld',
-    data() {
+    data () {
         return {
-            msg: 'Welcome to Your Vue.js App',
+            msg: 'Welcome to Your Vue.js App'
 
             // 注册不了 onload 事件
             // fn: new Promise( ( a, b ) => {
@@ -38,17 +38,18 @@ export default {
         console.log( 'this:', this.$store );
 
         // 监听数据变化
-        this.$store.watch( ( store, getters ) => {
+        this.$store.watch( ( store ) => {
+
             // 响应式
-            return this.$store.state.count;
+            return store.state.count;
         }, data => {
             console.log( '==============:', data );
         } );
     },
 
     mounted () {
-        this.$nextTick( _ => {
-            let fn = new Promise( ( resolve, reject ) => {
+        this.$nextTick( () => {
+            let fn = new Promise( ( resolve ) => {
                 this.$refs.img.onload = resolve;
             } );
             this.callback2( fn );
@@ -63,7 +64,8 @@ export default {
         ...mapMutations( {
 
             // commit 是默认的
-            test: ( commit, num ) => {
+            test: ( commit ) => {
+
                 // commit( 'add', num );
                 commit( {
                     type: 'add',
