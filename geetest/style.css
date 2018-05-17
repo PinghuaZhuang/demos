@@ -1,0 +1,10 @@
+#captcha {
+    width: 300px;
+    display: inline-block;
+}
+
+#wait {
+    text-align: left;
+    color: #666;
+    margin: 0;
+}
