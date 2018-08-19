@@ -1,0 +1,13 @@
+.test1 {
+    width: 100px;
+    height: 100px;
+    padding-left: 50%;
+    background-color: red;
+}
+
+.test2 {
+    width: 100px;
+    height: 100px;
+    margin-top: 50%;
+    background-color: black;
+}
