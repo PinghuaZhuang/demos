@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <button id="btn">click me</button>
+
+    <script>
+
+    /**
+     * 1. 为什么说 view 中能访问 model
+     */
+
+    let app = {};
+
+    // view
+    app.view = function ( contrl ) {
+
+        let $btn = document.querySelector( '$btn' );
+
+        this.render = function ( model ) {
+            setTransfrome( model.getScale() );
+
+            function setTransfrome ( scale ) {
+
+                console.log( '变大的具体操作:', $btn );
+            }
+        }
+
+        $btn.click( contrl.toBig );
+    }
+
+    // contrl
+    app.contrl = function () {
+
+        let _view = new app.view( this );
+        let _model = new app.model();
+
+        // mvc 的入口
+        this.init = function () {
+            _model.regView( _view );
+            _model.updateView();
+        }
+
+        this.toBig = function () {
+            _model.scale( .1 );
+            _model.updateView();
+        };
+    }
+
+    // model
+    app.model = function () {
+        let _scale = 1;
+
+        // 每次放大 .1 倍
+        this.scale = function ( scale ) {
+            return _scale *= scale;
+        }
+        this.getScale = function () {
+            return _scale;
+        }
+
+        // 跟新视图
+        let dls = [];
+        this.updateView = function () {
+            dls.forEach( el => el && el.render && el.render( _scale ) );
+        }
+
+        this.regView = function ( view ) {
+            dls.push( view );
+        }
+    }
+
+    </script>
+
+</body>
+</html>

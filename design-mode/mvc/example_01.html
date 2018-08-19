@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>MVC例子</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+</head>
+
+<body>
+    <div>时钟</div>
+    <div controller="clock">
+        <span bind="hour"></span> :
+        <span bind="minutes"></span> :
+        <span bind="seconds"></span>
+    </div>
+    <br/>
+    <div>双向绑定</div>
+    <div controller="myCtrl" init="{numb:2,num:'nihao'}">
+        Input : <input type="text" bind="numb">
+        <br/>Span : <span bind="numb"></span>
+    </div>
+    <script type="text/javascript">
+
+        var app = (function () {
+            var Model = function (value) {
+                this._v = value;
+                this._listeners = [];
+            }
+            Model.prototype.set = function (value) {
+                var self = this;
+                self._v = value;
+                setTimeout(function () {
+                    self._listeners.forEach(function (listener) {
+                        listener.call(this, value);
+                    })
+                })
+            }
+            Model.prototype.watch = function (func) {
+                this._listeners.push(func);
+            }
+            Model.prototype.bind = function (node) {
+                var self = this;
+                this.watch(function (value) {
+                    if (node.tagName.toUpperCase() == "INPUT" && !self.inputEvent) {
+                        node.addEventListener("keyup", function () {
+                            var _v = this.value;
+                            if (_v != value) {
+                                self.set(_v);
+                            }
+                            self.inputEvent = 1;
+                        })
+                        node.value = value;
+                    } else {
+                        node = value;
+                    }
+                })
+            }
+            function controller(controllername, callback) {
+                var models = {},
+                    search = typeof controllername == "string" ? "[controller=" + controllername + "]" : "[controller]",
+                    controller = document.querySelector(search), init = eval("(" + controller.getAttribute("init") + ")"), $scope = {};
+                if (!controller) return;
+                var views = Array.prototype.slice.call(controller.querySelectorAll("[bind]"), 0);
+                views.forEach(function (view) {
+                    var modelname = view.getAttribute("bind");
+                    (models[modelname] = models[modelname] || new Model()).bind(view);
+                    $scope = createVisitors($scope, models[modelname], modelname);
+                });
+                for (var index in init) {
+                    $scope[index] = init[index];
+                }
+                callback.call(this, $scope);
+            }
+            function createVisitors($scope, model, property) {
+                $scope.__defineSetter__(property, function (value) {
+                    model.set(value);
+                })
+                return $scope;
+            }
+            return {
+                controller: controller
+            }
+        })();
+
+        app.controller("myCtrl", function ($scope) {
+            //code ...
+        });
+
+        app.controller("clock", function ($scope) {
+            function setTime() {
+                var date = new Date();
+                $scope.hour = date.getHours();
+                $scope.minutes = date.getMinutes();
+                $scope.seconds = date.getSeconds();
+                setTimeout(setTime, 1000);
+            }
+            setTime();
+        })
+    </script>
+</body>
+
+</html>
