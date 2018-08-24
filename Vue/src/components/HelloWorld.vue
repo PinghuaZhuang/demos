@@ -1,5 +1,8 @@
 <template>
     <div class="hello">
+
+        <Data :obj="obj"></Data>
+
         <h1 @click="add">count add</h1>
         <h1 @click="test( 1000 )">count test</h1>
         <h1 @click="callback">count callback</h1>
@@ -19,18 +22,31 @@
  */
 
 import { mapMutations, mapActions } from 'vuex';
+import Data from './data';
 
 export default {
     name: 'HelloWorld',
+    components: {
+        Data
+    },
     data () {
         return {
-            msg: 'Welcome to Your Vue.js App'
+            msg: 'Welcome to Your Vue.js App',
 
             // 注册不了 onload 事件
             // fn: new Promise( ( a, b ) => {
             //     console.log( 'refs', this.$refs )
             //     a();
             // } )
+
+            obj: {
+                name: 'xxx',
+
+                jb: {
+                    it: true,
+                    w: true
+                }
+            }
         };
     },
 

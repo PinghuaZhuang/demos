@@ -20,61 +20,48 @@
 
     // view
     app.view = function ( contrl ) {
-
-        let $btn = document.querySelector( '$btn' );
+        let $btn = document.querySelector( '#id' );
 
         this.render = function ( model ) {
-            setTransfrome( model.getScale() );
+            $btn.style.width *= model.getScale();
+        };
 
-            function setTransfrome ( scale ) {
-
-                console.log( '变大的具体操作:', $btn );
-            }
-        }
-
-        $btn.click( contrl.toBig );
-    }
+        $btn.addEventListener( 'click', contrl.toBig );
+    };
 
     // contrl
     app.contrl = function () {
-
-        let _view = new app.view( this );
         let _model = new app.model();
+        let _view = new app.view( this );
 
-        // mvc 的入口
         this.init = function () {
-            _model.regView( _view );
-            _model.updateView();
-        }
-
-        this.toBig = function () {
-            _model.scale( .1 );
+            _model.registerView( _view );
             _model.updateView();
         };
-    }
+
+        // 处理业务逻辑
+        this.toBig = function () {
+            _model.setScale( .1 );
+            _model.pudateView();
+        };
+    };
 
     // model
     app.model = function () {
-        let _scale = 1;
+        let scale = 1;
 
-        // 每次放大 .1 倍
-        this.scale = function ( scale ) {
-            return _scale *= scale;
-        }
-        this.getScale = function () {
-            return _scale;
-        }
+        this.setScale = function ( num ) {
+            return scale *= num;
+        };
 
-        // 跟新视图
         let dls = [];
         this.updateView = function () {
-            dls.forEach( el => el && el.render && el.render( _scale ) );
+            dls.forEach( el => el && el.render && el.render( this ) );
+        };
+        this.registerView = function ( ...rest ) {
+            dls.push( ...rest );
         }
-
-        this.regView = function ( view ) {
-            dls.push( view );
-        }
-    }
+    };
 
     </script>
 
