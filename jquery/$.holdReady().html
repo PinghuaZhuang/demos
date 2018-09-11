@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+</head>
+<body>
+
+    <script>
+    // 多写几个 $.holdReady( false ); 肯定没错
+    document.addEventListener( 'visibilitychange', function () {
+        if ( 'visible' === document.visibilityState ) {
+            window.setTimeout( function () {
+                $.holdReady( false );
+
+                // $.holdReady( false );
+            }, 1000 );
+        } else {
+            console.log( 'xxxxx' );
+            $.holdReady( true );
+        }
+    } );
+
+    $.holdReady( true );
+    $( document ).ready( function () {
+        console.log( '文档加载完毕!!1' );
+    } );
+
+    window.setTimeout( function () {
+        console.log( { $ }, document.visibilityState );
+        $.holdReady( false );
+    }, 2000 );
+    </script>
+
+</body>
+</html>

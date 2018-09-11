@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>require</title>
+    <script data-main="./main.js" src="http://apps.bdimg.com/libs/require.js/2.1.11/require.min.js"></script>
+</head>
+<body>
+
+    <h1>在javascript中存放模板, template中 id 选择器不要添加 #</h1>
+    <div id="content"></div>
+
+    <script id="tpl" type="text/html">
+
+        <ul>
+            {{each list item}}
+            <li>{{ item }}</li>
+            {{/each}}
+        </ul>
+    </script>
+
+</body>
+</html>
