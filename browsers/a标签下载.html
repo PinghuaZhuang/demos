@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>a标签下载</title>
+</head>
+<body>
+
+    <a id="a">点击下载</a>
+
+    <script>
+    /**
+     * 原文地址: https://segmentfault.com/a/1190000015026760
+     */
+
+    var a = document.querySelector( '#a' );
+
+    console.log( { a } );
+
+    function download ( data ) {
+
+        var blob = new window.Blob( [ data ], {
+            type: 'text/plain'
+        } );
+
+        var urlObj = window.URL.createObjectURL( blob );
+
+        a.href = urlObj;
+        a.download = 'xxxx.txt';
+    }
+
+    download( 'salkfja;lkfja;lkjsdflkajsdflkajsfdlkajsfdlaksf' );
+
+    // const foo = {hello: "world"};
+    // const blob = new Blob([JSON.stringify(foo)], {type: "text/plain"});
+    // const fileName = `${new Date().valueOf()}.doc`;
+    // const link = document.createElement('a');
+    // link.href = window.URL.createObjectURL(blob);
+    // link.download = fileName;
+    // link.click();
+    // window.URL.revokeObjectURL(link.href);
+
+    </script>
+
+</body>
+</html>
