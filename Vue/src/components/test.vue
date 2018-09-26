@@ -10,6 +10,8 @@
         <vModule v-model="msg.name" />
         <!-- <base-checkbox v-model="lovingVue"></base-checkbox> -->
 
+        <button @click="xxxx">click me</button>
+
     </div>
 </template>
 
@@ -18,6 +20,7 @@
 // 组件
 import Vue from 'vue';
 import vModule from '@/components/directive/v-module.vue';
+import xx from 'aaa';
 
 Vue.component( 'base-checkbox', {
     model: {
@@ -72,6 +75,12 @@ export default {
     watch: {
         'msg.name' ( val ) {
             console.log( 'val:', val );
+        }
+    },
+
+    methods: {
+        xxxx () {
+            console.log( 'jquery:', xx );
         }
     }
 };
