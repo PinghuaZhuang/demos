@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #red {
+            height: 50px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <!--
+        1. 只有 js 控制对应条件变化是, dom 断点才会有效
+     -->
+
+    <div class="demo">
+        <input type="checkbox" checked>
+    </div>
+    <div id="red"></div>
+    <button id="btn">append</button>
+
+    <script>
+
+    var demo = document.querySelector( '.demo' );
+    var btn = document.querySelector( '#btn' );
+    var red = document.querySelector( '#red' );
+
+    btn.onclick = function () {
+        demo.append( red );
+    }
+
+    </script>
+
+</body>
+</html>
