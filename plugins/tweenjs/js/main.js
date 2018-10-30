@@ -18,10 +18,10 @@
      // .to( { x: 300, y: 200 }, 1000 ) // Move to (300, 200) in 1 second.
      .to( { rotation: 360 } )
      .easing( TWEEN.Easing.Quadratic.Out ) // Use an easing function to make the animation smooth.
-     .onUpdate( function () { // Called after tween.js updates 'coords'.
+     .onUpdate( function ( cur ) { // Called after tween.js updates 'coords'.
          // Move 'box' to the position described by 'coords' with a CSS translation.
          // box.style.setProperty( 'transform', 'translate(' + coords.x + 'px, ' + coords.y + 'px)' );
-         box.style.setProperty( 'transform', `rotate(${Math.round( rotation.rotation )}deg)` );
+         box.style.setProperty( 'transform', `rotate(${Math.round( cur.rotation )}deg)` );
      })
      // .start() // Start the tween immediately.
      .repeat( Infinity ) // 循环动画
