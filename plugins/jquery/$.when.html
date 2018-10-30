@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>when</title>
+    <script src="../../node_modules/jquery/dist/jquery.js"></script>
+</head>
+<body>
+
+    <script>
+
+        // when().done 可以执行多个函数
+        // when().then 只能一个执行一个函数
+
+        var p = $.Deferred();
+
+        var p1 = $.getJSON( './json/data.json' ).done( a => console.log( a ) );
+        var p2 = $.getJSON( './json/data1.json' );
+
+        p1.then( function ( a ) {
+            console.log( a );
+        } );
+
+        var a = $.when( p1, p2 ).done( function ( a, b, c ) {
+            console.log( 'a', a, b, c );
+
+            // 只有请求失败才会执行 fail
+            throw 'error';
+        }, function ( a, b, c ) {
+            console.log( 'b', a, b, c );
+        } );
+
+        console.log( 'when:', a );
+
+        a.done( function ( arr ) {
+            console.log( 'arr::', arr );
+        } );
+
+        a.fail( function ( err, data ) {
+            console.log( 'fail:', err, data );
+        } );
+
+        // Deferred
+
+        var d1 = $.Deferred();
+        var d2 = $.Deferred();
+
+        var d = $.when( d1, d2 ).done( function ( v1, v2 ) {
+            console.log( 'v1:', v1 ); // "Fish"
+            console.log( 'v2:', v2 ); // "Pizza"
+        } );
+
+        d1.resolve( 'Fish' );
+        d2.resolve( 'Pizza' );
+
+        // 参数继续传递
+        d.then( ( a, b ) => console.log( 'da:', a, b ) );
+
+    </script>
+
+</body>
+</html>
