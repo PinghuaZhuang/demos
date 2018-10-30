@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <link href="./images/favicon.gif" mce_href="./images/favicon.gif" rel="icon" type="image/x-icon" /> -->
+    <!-- <link href="./images/favicon.gif" rel="icon" type="image/gif" > -->
+    <link rel="icon" type="image/x-icon" href="http://www.op.gg/favicon.ico?4">
+
+</head>
+<body>
+
+    <button id="btn">click me</button>
+
+    <script>
+
+        var btn = document.querySelector( '#btn' );
+        var favicon = document.querySelector( '#favicon' );
+
+        btn.onclick = function () {
+            favicon.href = './images/favicon.ico';
+        }
+
+    </script>
+
+</body>
+</html>
