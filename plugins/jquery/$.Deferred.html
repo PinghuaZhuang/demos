@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../node_modules/jquery/dist/jquery.js"></script>
+    <title>Deferred</title>
+</head>
+
+<body>
+    <script>
+        var dtd = $.Deferred();
+        dtd.progress(function (value) { console.log(value) });
+        dtd.notify(8);
+        dtd.notify(10);
+        dtd.notify("最后一次");
+    </script>
+</body>
+
+</html>
