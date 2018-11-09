@@ -5,6 +5,14 @@ var wrap = document.querySelector( '.wrap' );
 window.onclick = function () {
     // var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
     // console.log( scrollTop );
+    // 特效
+    // window.scrollTo({
+    //     top: 0,
+    //     behavior: "smooth"
+    // });
+
+    // // 瞬动到指定坐标
+    // window.scrollTo( x, y );
 }
 
  // Setup the animation loop.
