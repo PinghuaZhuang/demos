@@ -21,6 +21,7 @@
 import Vue from 'vue';
 import vModule from '@/components/directive/v-module.vue';
 import xx from 'aaa';
+import EntityCtl from './test/EntityCtl';
 
 Vue.component( 'base-checkbox', {
     model: {
@@ -30,6 +31,7 @@ Vue.component( 'base-checkbox', {
     props: {
         checked: String
     },
+
     template: `
         <div
             type="checkbox"
@@ -70,6 +72,10 @@ export default {
         active () {
             return !!this.msg.name.length;
         }
+    },
+
+    mounted () {
+        console.log( 'EntityCtl::', EntityCtl );
     },
 
     watch: {
