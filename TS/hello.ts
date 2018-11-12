@@ -37,5 +37,7 @@ let obj2 = {
     color: 11
 }
 
+let arr: string[] = [ '1', '2' ];
+
 voidT( obj );
 voidT2( obj2 );

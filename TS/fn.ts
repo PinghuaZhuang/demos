@@ -30,3 +30,26 @@ function add ( num1, num2 ) {
 
 console.log( add( 1, 1 ) );
 console.log( add( '1', '1' ) );
+
+interface Person {
+    name: string
+}
+
+interface Test {
+
+    // 这种定义是不会报错的
+    // 最好都是传递基本数据类型
+    ( num: Person ): number
+    ( str: string ): string
+}
+
+let getP: Test = function ( param ) {
+    return param;
+}
+
+let getP2: ( param: number ) => number = function ( num ) {
+    return num += 10;
+}
+
+getP( '1' );
+getP2( 12 );
