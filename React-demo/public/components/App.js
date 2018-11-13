@@ -3,6 +3,7 @@ import React from 'react'
 // 组件
 import Hello from './fnRend'
 import Life from './life'
+import Exa from './example'
 
 class App extends React.Component {
    render() {
@@ -11,6 +12,7 @@ class App extends React.Component {
             Hello World!
             <Hello color="red" date={ new Date }/>
             <Life/>
+            <Exa/>
          </div>
       )
    }

@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 186);
+/******/ 	return __webpack_require__(__webpack_require__.s = 187);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -2931,6 +2931,15 @@ module.exports = reactProdInvariant;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+module.exports = __webpack_require__(18);
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -3207,7 +3216,7 @@ module.exports = EventPluginHub;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3221,7 +3230,7 @@ module.exports = EventPluginHub;
 
 
 
-var EventPluginHub = __webpack_require__(20);
+var EventPluginHub = __webpack_require__(21);
 var EventPluginUtils = __webpack_require__(36);
 
 var accumulateInto = __webpack_require__(69);
@@ -3345,7 +3354,7 @@ module.exports = EventPropagators;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3394,7 +3403,7 @@ var ReactInstanceMap = {
 module.exports = ReactInstanceMap;
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3454,15 +3463,6 @@ function SyntheticUIEvent(dispatchConfig, dispatchMarker, nativeEvent, nativeEve
 SyntheticEvent.augmentClass(SyntheticUIEvent, UIEventInterface);
 
 module.exports = SyntheticUIEvent;
-
-/***/ }),
-/* 24 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = __webpack_require__(18);
 
 /***/ }),
 /* 25 */
@@ -4087,7 +4087,7 @@ module.exports = ReactBrowserEventEmitter;
 
 
 
-var SyntheticUIEvent = __webpack_require__(23);
+var SyntheticUIEvent = __webpack_require__(24);
 var ViewportMetrics = __webpack_require__(68);
 
 var getEventModifierState = __webpack_require__(44);
@@ -5545,7 +5545,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 var _prodInvariant = __webpack_require__(3);
 
 var ReactCurrentOwner = __webpack_require__(11);
-var ReactInstanceMap = __webpack_require__(22);
+var ReactInstanceMap = __webpack_require__(23);
 var ReactInstrumentation = __webpack_require__(8);
 var ReactUpdates = __webpack_require__(10);
 
@@ -7725,7 +7725,7 @@ var ReactDOMComponentTree = __webpack_require__(5);
 var ReactDOMContainerInfo = __webpack_require__(116);
 var ReactDOMFeatureFlags = __webpack_require__(118);
 var ReactFeatureFlags = __webpack_require__(62);
-var ReactInstanceMap = __webpack_require__(22);
+var ReactInstanceMap = __webpack_require__(23);
 var ReactInstrumentation = __webpack_require__(8);
 var ReactMarkupChecksum = __webpack_require__(138);
 var ReactReconciler = __webpack_require__(17);
@@ -9638,17 +9638,21 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(24);
+var _react = __webpack_require__(20);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _fnRend = __webpack_require__(184);
+var _fnRend = __webpack_require__(185);
 
 var _fnRend2 = _interopRequireDefault(_fnRend);
 
-var _life = __webpack_require__(185);
+var _life = __webpack_require__(186);
 
 var _life2 = _interopRequireDefault(_life);
+
+var _example = __webpack_require__(184);
+
+var _example2 = _interopRequireDefault(_example);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -9678,7 +9682,8 @@ var App = function (_React$Component) {
             { className: 'app', id: 'appX' },
             'Hello World!',
             _react2.default.createElement(_fnRend2.default, { color: 'red', date: new Date() }),
-            _react2.default.createElement(_life2.default, null)
+            _react2.default.createElement(_life2.default, null),
+            _react2.default.createElement(_example2.default, null)
          );
       }
    }]);
@@ -11945,7 +11950,7 @@ module.exports = AutoFocusUtils;
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var EventPropagators = __webpack_require__(21);
+var EventPropagators = __webpack_require__(22);
 var ExecutionEnvironment = __webpack_require__(6);
 var FallbackCompositionState = __webpack_require__(109);
 var SyntheticCompositionEvent = __webpack_require__(152);
@@ -12551,8 +12556,8 @@ module.exports = CSSPropertyOperations;
 
 
 
-var EventPluginHub = __webpack_require__(20);
-var EventPropagators = __webpack_require__(21);
+var EventPluginHub = __webpack_require__(21);
+var EventPropagators = __webpack_require__(22);
 var ExecutionEnvironment = __webpack_require__(6);
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactUpdates = __webpack_require__(10);
@@ -12945,7 +12950,7 @@ module.exports = DefaultEventPluginOrder;
 
 
 
-var EventPropagators = __webpack_require__(21);
+var EventPropagators = __webpack_require__(22);
 var ReactDOMComponentTree = __webpack_require__(5);
 var SyntheticMouseEvent = __webpack_require__(28);
 
@@ -13581,7 +13586,7 @@ var React = __webpack_require__(18);
 var ReactComponentEnvironment = __webpack_require__(39);
 var ReactCurrentOwner = __webpack_require__(11);
 var ReactErrorUtils = __webpack_require__(40);
-var ReactInstanceMap = __webpack_require__(22);
+var ReactInstanceMap = __webpack_require__(23);
 var ReactInstrumentation = __webpack_require__(8);
 var ReactNodeTypes = __webpack_require__(66);
 var ReactReconciler = __webpack_require__(17);
@@ -14606,7 +14611,7 @@ var DOMLazyTree = __webpack_require__(16);
 var DOMNamespaces = __webpack_require__(35);
 var DOMProperty = __webpack_require__(13);
 var DOMPropertyOperations = __webpack_require__(58);
-var EventPluginHub = __webpack_require__(20);
+var EventPluginHub = __webpack_require__(21);
 var EventPluginRegistry = __webpack_require__(26);
 var ReactBrowserEventEmitter = __webpack_require__(27);
 var ReactDOMComponentFlags = __webpack_require__(59);
@@ -17683,7 +17688,7 @@ module.exports = REACT_ELEMENT_TYPE;
 
 
 
-var EventPluginHub = __webpack_require__(20);
+var EventPluginHub = __webpack_require__(21);
 
 function runEventQueueInBatch(events) {
   EventPluginHub.enqueueEvents(events);
@@ -17914,7 +17919,7 @@ module.exports = ReactHostOperationHistoryHook;
 
 
 var DOMProperty = __webpack_require__(13);
-var EventPluginHub = __webpack_require__(20);
+var EventPluginHub = __webpack_require__(21);
 var EventPluginUtils = __webpack_require__(36);
 var ReactComponentEnvironment = __webpack_require__(39);
 var ReactEmptyComponent = __webpack_require__(61);
@@ -18047,7 +18052,7 @@ module.exports = ReactMarkupChecksum;
 var _prodInvariant = __webpack_require__(3);
 
 var ReactComponentEnvironment = __webpack_require__(39);
-var ReactInstanceMap = __webpack_require__(22);
+var ReactInstanceMap = __webpack_require__(23);
 var ReactInstrumentation = __webpack_require__(8);
 
 var ReactCurrentOwner = __webpack_require__(11);
@@ -19454,7 +19459,7 @@ module.exports = SVGDOMPropertyConfig;
 
 
 
-var EventPropagators = __webpack_require__(21);
+var EventPropagators = __webpack_require__(22);
 var ExecutionEnvironment = __webpack_require__(6);
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactInputSelection = __webpack_require__(64);
@@ -19649,7 +19654,7 @@ module.exports = SelectEventPlugin;
 var _prodInvariant = __webpack_require__(3);
 
 var EventListener = __webpack_require__(51);
-var EventPropagators = __webpack_require__(21);
+var EventPropagators = __webpack_require__(22);
 var ReactDOMComponentTree = __webpack_require__(5);
 var SyntheticAnimationEvent = __webpack_require__(150);
 var SyntheticClipboardEvent = __webpack_require__(151);
@@ -19660,7 +19665,7 @@ var SyntheticMouseEvent = __webpack_require__(28);
 var SyntheticDragEvent = __webpack_require__(153);
 var SyntheticTouchEvent = __webpack_require__(157);
 var SyntheticTransitionEvent = __webpack_require__(158);
-var SyntheticUIEvent = __webpack_require__(23);
+var SyntheticUIEvent = __webpack_require__(24);
 var SyntheticWheelEvent = __webpack_require__(159);
 
 var emptyFunction = __webpack_require__(9);
@@ -20036,7 +20041,7 @@ module.exports = SyntheticDragEvent;
 
 
 
-var SyntheticUIEvent = __webpack_require__(23);
+var SyntheticUIEvent = __webpack_require__(24);
 
 /**
  * @interface FocusEvent
@@ -20115,7 +20120,7 @@ module.exports = SyntheticInputEvent;
 
 
 
-var SyntheticUIEvent = __webpack_require__(23);
+var SyntheticUIEvent = __webpack_require__(24);
 
 var getEventCharCode = __webpack_require__(43);
 var getEventKey = __webpack_require__(165);
@@ -20202,7 +20207,7 @@ module.exports = SyntheticKeyboardEvent;
 
 
 
-var SyntheticUIEvent = __webpack_require__(23);
+var SyntheticUIEvent = __webpack_require__(24);
 
 var getEventModifierState = __webpack_require__(44);
 
@@ -20573,7 +20578,7 @@ var _prodInvariant = __webpack_require__(3);
 
 var ReactCurrentOwner = __webpack_require__(11);
 var ReactDOMComponentTree = __webpack_require__(5);
-var ReactInstanceMap = __webpack_require__(22);
+var ReactInstanceMap = __webpack_require__(23);
 
 var getHostComponentFromComposite = __webpack_require__(71);
 var invariant = __webpack_require__(1);
@@ -22095,10 +22100,124 @@ module.exports = traverseAllChildren;
 
 
 Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(20);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Son = function (_React$Component) {
+  _inherits(Son, _React$Component);
+
+  function Son() {
+    _classCallCheck(this, Son);
+
+    return _possibleConstructorReturn(this, (Son.__proto__ || Object.getPrototypeOf(Son)).apply(this, arguments));
+  }
+
+  _createClass(Son, [{
+    key: 'shouldComponentUpdate',
+    value: function shouldComponentUpdate(nextProps, nextState) {
+      //旧的number Object对象的number属性 == 新的number Object对象的number属性
+      if (nextProps.numberObject.number == this.props.numberObject.number) {
+        return false;
+      }
+      return true;
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          index = _props.index,
+          numberObject = _props.numberObject,
+          handleClick = _props.handleClick;
+      //在每次渲染子组件时，打印该子组件的数字内容
+
+      console.log(numberObject.number);
+      return _react2.default.createElement(
+        'h1',
+        { onClick: handleClick.bind(this, index) },
+        numberObject.number
+      );
+    }
+  }]);
+
+  return Son;
+}(_react2.default.Component);
+
+var Father = function (_React$Component2) {
+  _inherits(Father, _React$Component2);
+
+  function Father(props) {
+    _classCallCheck(this, Father);
+
+    var _this2 = _possibleConstructorReturn(this, (Father.__proto__ || Object.getPrototypeOf(Father)).call(this, props));
+
+    _this2.state = {
+      numberArray: [{ number: 0 /*对象中其他的属性*/ }, { number: 1 /*对象中其他的属性*/ }, { number: 2 /*对象中其他的属性*/ }]
+    };
+    return _this2;
+  }
+  //点击后使numberArray中数组下标为index的数字值加一，重渲染对应的Son组件
+
+
+  _createClass(Father, [{
+    key: 'handleClick',
+    value: function handleClick(index) {
+      var preNumberArray = this.state.numberArray;
+      //把做修改的number Object先拷贝到一个新的对象中，替换原来的对象
+      preNumberArray[index] = Object.assign({}, preNumberArray[index]);
+      //使新的number Object对象的number属性加一，旧的number Object对象属性不变
+      preNumberArray[index].number += 1;
+      this.setState({ numberArray: preNumberArray });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this3 = this;
+
+      return _react2.default.createElement(
+        'div',
+        { style: { margin: 30 } },
+        this.state.numberArray.map(function (numberObject, key) {
+          return _react2.default.createElement(Son, {
+            key: key,
+            index: key,
+            numberObject: numberObject,
+            handleClick: _this3.handleClick.bind(_this3) });
+        })
+      );
+    }
+  }]);
+
+  return Father;
+}(_react2.default.Component);
+
+exports.default = Father;
+
+/***/ }),
+/* 185 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _react = __webpack_require__(24);
+var _react = __webpack_require__(20);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -22126,7 +22245,7 @@ function Hello(props) {
 exports.default = Hello;
 
 /***/ }),
-/* 185 */
+/* 186 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22138,7 +22257,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(24);
+var _react = __webpack_require__(20);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -22149,35 +22268,74 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // 必须应用 React, 太坑了
+// JSX 回调函数中的 this !!!!
+// 属性元素的界面原理与 vue 一样, 都是利用 虚拟 dom 数
+// props 变化, setState 变化都会使组件整个刷新, 调用 render 函数
+// 可以使用 shouldComponentUpdate 来优化
 
 
-var Life = function (_Component) {
-    _inherits(Life, _Component);
+var obj = {
+    className: 'name',
+    color: {
+        value: 'blue'
+    }
 
-    function Life() {
+    // pureComponent: 没有去除 shouldComponentUpdate 方法, 还是会比较
+    // PurerComponent: state 和 props 没有变化, 不触发 render
+    // 浅比较, 嵌套比较省的时候, 不能使用
+};
+var Life = function (_PureComponent) {
+    _inherits(Life, _PureComponent);
+
+    function Life(opts) {
         _classCallCheck(this, Life);
 
-        return _possibleConstructorReturn(this, (Life.__proto__ || Object.getPrototypeOf(Life)).apply(this, arguments));
+        // 跟 html 绑定的数据写在这里
+        var _this = _possibleConstructorReturn(this, (Life.__proto__ || Object.getPrototypeOf(Life)).call(this, opts));
+
+        _this.state = {
+            className: 'xxx',
+            color: {
+                value: 'red'
+            }
+
+            // 定义定时器
+            // 这种方式不能触发页面更新
+        };_this.timer = null;
+        return _this;
     }
 
     _createClass(Life, [{
         key: 'render',
         value: function render() {
+            console.count('render');
             return _react2.default.createElement(
                 'div',
-                null,
+                { className: this.state.className },
                 _react2.default.createElement(
                     'button',
-                    { onClick: this.click },
-                    ' click me '
+                    { onClick: this.click.bind(this, 'red') },
+                    ' click me ',
+                    this.state.color.value,
+                    ' '
                 )
             );
             // onClickCap
         }
+
+        // This syntax ensures `this` is bound within click.
+        // Warning: this is *experimental* syntax.
+
     }, {
         key: 'click',
-        value: function click() {
-            console.log('click', this);
+        value: function click(e, color) {
+            // JSX 回调函数中的 this !!!!
+            // 这里不能使用 this, this === undefined, 需要手动绑定
+            console.log('click', e, color);
+
+            // 深拷贝 ?
+            this.setState(obj);
+            obj.color.value = 'xxxxxxxxxx';
         }
 
         // 元素挂载前
@@ -22222,28 +22380,44 @@ var Life = function (_Component) {
             console.log('componentDidUpdate', this);
         }
 
-        // 捕获异常 ???
+        // 捕获异常
+        // 如果 render() 函数抛出错误，则会触发该函数
 
     }, {
         key: 'componentDidCatch',
-        value: function componentDidCatch() {
-            console.log('componentDidCatch', this);
+        value: function componentDidCatch(error) {
+            console.log('componentDidCatch', this, error);
         }
+
+        // 判断是否更新组件
+        // 返回 false 阻止更新组件
+        // shouldComponentUpdate ( nextProps, nextState ) {
+        //     console.log( 'shouldComponentUpdate', this );
+
+        //     // 这里有个问题, 如果 className 没变, 其他变了 ??
+        //     // 可能判断会变的复杂
+        //     if ( nextState.className === this.state.className ) {
+        //         return false
+        //     }
+
+        //     return true
+        // }
+
     }]);
 
     return Life;
-}(_react.Component);
+}(_react.PureComponent);
 
 exports.default = Life;
 
 /***/ }),
-/* 186 */
+/* 187 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _react = __webpack_require__(24);
+var _react = __webpack_require__(20);
 
 var _react2 = _interopRequireDefault(_react);
 
