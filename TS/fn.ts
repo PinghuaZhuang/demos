@@ -60,10 +60,10 @@ function isString ( str: any ): str is string {
     return typeof str === 'string';
 }
 
-let stra: any;
+let stra: string | number | boolean;
 
 if ( isString( stra ) ) {
     console.log( stra.length );
 } else {
-    console.log( stra.xxxxx );
+    console.log( ( <number>stra ).toFixed );
 }
