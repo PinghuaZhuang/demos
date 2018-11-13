@@ -53,3 +53,17 @@ let getP2: ( param: number ) => number = function ( num ) {
 
 getP( '1' );
 getP2( 12 );
+
+// any 类型数据可以使用任何属性
+// 类型谓词, 目的在与编译的时候类型缩小到指定的类型
+function isString ( str: any ): str is string {
+    return typeof str === 'string';
+}
+
+let stra: any;
+
+if ( isString( stra ) ) {
+    console.log( stra.length );
+} else {
+    console.log( stra.xxxxx );
+}
