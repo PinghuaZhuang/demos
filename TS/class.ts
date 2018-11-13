@@ -1,30 +1,35 @@
-interface He {
-    isArray( arr: any ): arr is any[]
-    isWindow( obj: any ): boolean
-
-    // 定义最终放回自身
-    add( color: number ): this
+interface Person3 {
+    name: string
 }
 
-class He implements He {
+interface He {
+    isArray( arr: any ): boolean
+    // isWindow( obj: object ): obj is Window
+
+    // 实现的时候可以不定义参数类型|不传递参数
+    // 传递的参数需要定义, 必须满足接口定义的类型
+    add( color: Person3 ): this
+}
+
+class HeImpl implements He {
     constructor( ) {
 
     }
-    isArray ( arr ) {
-        return !Array.isArray( arr );
-    }
-    isWindow ( obj ) {
-        obj.Window;
+    isArray ( arr: any ) {
         return false;
     }
+    isWindow ( obj ) {
+        return ;
+    }
 
-    // 参数已经定义可以不填
-    add () {
+    add ( p ) {
         this.isWindow;
         return this;
     }
 }
 
-let a1 = new He();
+let a1 = new HeImpl();
+
+a1.add( 1 );
 
 a1.isWindow( Window );
