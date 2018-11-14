@@ -4,6 +4,8 @@ import React from 'react'
 import Hello from './fnRend'
 import Life from './life'
 import Exa from './example'
+import Advanced from './advanced'
+import Refs from './refs'
 
 class App extends React.Component {
    render() {
@@ -13,6 +15,8 @@ class App extends React.Component {
             <Hello color="red" date={ new Date }/>
             <Life/>
             <Exa/>
+            <Advanced/>
+            <Refs/>
          </div>
       )
    }
