@@ -54,16 +54,29 @@ let getP2: ( param: number ) => number = function ( num ) {
 getP( '1' );
 getP2( 12 );
 
-// any 类型数据可以使用任何属性
-// 类型谓词, 目的在与编译的时候类型缩小到指定的类型
-function isString ( str: any ): str is string {
-    return typeof str === 'string';
+let any;
+
+example( any );
+
+interface Rgb {
+    rgb: [ number, number, number ],
+    alpha: number
 }
 
-let stra: string | number | boolean;
+function toColorObj ( obj ) {
+    /* do something... */
+    return obj;
+}
 
-if ( isString( stra ) ) {
-    console.log( stra.length );
-} else {
-    console.log( ( <number>stra ).toFixed );
+function isColorStr ( str: any ): str is string {
+    return typeof str === 'string' && /(\d+,\s*){2}\d+/.test( str );
+}
+
+function example ( param: any ) {
+    if ( isColorStr( param ) ) {
+        return param.split( /,\s*/ );
+    }
+
+    // 无定义返回类型
+    return ( toColorObj( param ) as Rgb ).rgb;
 }
