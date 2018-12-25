@@ -21,5 +21,14 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "eslint": "^5.9.0",
+    "eslint-config-alloy": "^1.4.2",
+    "eslint-config-jquery": "^1.0.1",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-typescript": "^0.14.0",
+    "typescript": "^3.2.1",
+    "typescript-eslint-parser": "^21.0.2"
+  }
 }
