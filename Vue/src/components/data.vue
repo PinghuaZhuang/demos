@@ -22,6 +22,10 @@ export default {
         'obj.jb' ( val ) {
             console.log( 'obj.jb:', val );
         }
+    },
+
+    render () {
+        return <div>color</div>
     }
 };
 </script>

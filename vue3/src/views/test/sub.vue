@@ -8,13 +8,7 @@ import { Component, Inject, Provide, Vue } from 'vue-property-decorator';
 
 @Component
 export default class SubCom extends Vue {
-    // 不响应
-    // 可以使用对象
-    @Inject() xcolor!: string
-
-    created () {
-        console.log( 'sub:', this.xcolor );
-    }
+    @Inject() data!: string
 }
 </script>
 

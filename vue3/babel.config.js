@@ -1,5 +1,7 @@
 module.exports = {
   presets: [
-    '@vue/app'
-  ]
+    '@vue/app',
+    "es2015"
+  ],
+  plugins: [ "transform-vue-jsx" ]
 }

@@ -1,12 +1,14 @@
 <template>
     <div id="test">
         <div class="demo">{{ color }}</div>
-        <button @click="changeColor">changeColor</button>
-        <SubCom/>
+        <!-- <button @click="changeColor">changeColor</button>
+        <SubCom/> -->
+        <div v-html="html"></div>
     </div>
 </template>
 
-<script lang='ts'>
+<script lang='tsx'>
+/* elsint-disable */
 import { Component, Inject, Provide, Vue } from 'vue-property-decorator';
 
 // 组件
@@ -20,12 +22,17 @@ import SubCom from './sub.vue';
 export default class TestCom extends Vue {
     color: string = 'green'
 
+    html = '<div></div>'
+
+    // html = <div>
+    //     <button onClick={ this.changeColor.bind( this ) }>changeColor</button>
+    //     <SubCom/>
+    // </div>
+
     created () {
         console.log( 're:', this.color );
     }
 
-    // 不要同时注册, 不会报错, 但是不规范
-    // 也是定义
     @Provide( 'xcolor' ) xcolor = {
         color: this.color
     }
