@@ -23,3 +23,9 @@ class PersonImpl implements Person {
 }
 
 // obj 不是 PersonImpl 的实例
+
+let obj2: {
+    name: string
+} = {
+    name: 'xxx'
+}
