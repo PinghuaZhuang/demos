@@ -1,5 +1,5 @@
 <script lang='tsx'>
-/// <reference path="../../types/types.d.ts" />
+// <reference path="../../types/types.d.ts" />
 import { Component, Provide, Vue } from 'vue-property-decorator'
 import SubCom from '@/views/test/sub.vue'
 
