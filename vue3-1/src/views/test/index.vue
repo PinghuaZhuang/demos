@@ -59,11 +59,12 @@ export default class TestCom extends Vue {
         // 要想跳转必须调用 next 方法
         // 跳转成功后会调用回调函数, 在回调函数里面可以使用 vm 实例
 
+        // 必须调用 next 方法才能跳转
         // if ( to.name === 'test' ) {
         //     return
         // }
         next( ( vm: Vue ) => {
-            console.log( 'vm:', vm, to, from, next );
+            console.log( 'vm:', vm, to, from, next )
         } )
     }
 }
