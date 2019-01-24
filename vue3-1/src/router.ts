@@ -25,6 +25,12 @@ export default new Router({
       path: '/test/:color?',
       name: 'test',
       component: () => import( './views/test/index.vue' )
+    },
+    {
+      path: '/demo',
+      name: 'demo',
+      component: () => import( './demo/index.vue' ),
+      children: [  ]
     }
   ]
 })
