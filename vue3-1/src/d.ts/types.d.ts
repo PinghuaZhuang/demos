@@ -8,6 +8,10 @@ declare interface Person {
     name: string
 }
 
+declare interface AnyProp {
+    [ prop: string ]: any;
+}
+
 // declare module '*.vue' {
 //     export interface Color {
 //         color: string

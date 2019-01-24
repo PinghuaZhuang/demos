@@ -30,7 +30,11 @@ export default new Router({
       path: '/demo',
       name: 'demo',
       component: () => import( './demo/index.vue' ),
-      children: [  ]
+      children: [ {
+        path: 'vuex-plugins',
+        name: 'vuex-plugins',
+        component: () => import( './demo/vuex-plugins.vue' )
+      } ]
     }
   ]
 })
