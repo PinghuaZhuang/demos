@@ -39,7 +39,7 @@ export default new Router({
         {
             path: '/plugins',
             name: 'plugins',
-            component: () => import( './demo/index.vue' ),
+            component: () => import( './plugins/index.vue' ),
             children: [ {
                 path: 'axios',
                 name: 'axios',
