@@ -52,6 +52,8 @@ export default class Plugins extends Vue {
         } )
 
         var axPromise = ax.get( 'http://wthrcdn.etouch.cn/weather_mini', {
+
+            // get: params, post: data
             params: {
                 city: '深圳'
             }
