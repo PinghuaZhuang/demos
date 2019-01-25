@@ -7,8 +7,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import { mapMutations } from 'vuex'
-import { getCache } from '@/store'
-console.log( getCache )
+// import { getCache } from '@/store'
 
 @Component( {
     methods: {
@@ -21,7 +20,7 @@ export default class VuexPluginsImp extends Vue {
 
     btnClick () {
         // 打印历史记录
-        getCache( 'count' )
+        // getCache( 'count' )
 
         // 这叫自找麻烦, 用什么 ts
         ( this as any ).addCount()
