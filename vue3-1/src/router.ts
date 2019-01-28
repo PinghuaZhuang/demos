@@ -40,6 +40,26 @@ export default new Router({
                 path: 'vuex-plugins',
                 name: 'vuex-plugins',
                 component: () => import( './demo/vuex-plugins.vue' )
+            }, {
+                path: 'keep-alive',
+                name: 'keep-alive',
+                component: () => import( './demo/keep-alive/index.vue' ),
+                children: [ {
+                    path: 'example1',
+                    name: 'example1',
+                    component: () => import( './demo/keep-alive/example1.vue' )
+                }, {
+                    path: 'example2',
+                    name: 'example2',
+                    component: () => import( './demo/keep-alive/example2.vue' ),
+                    meta: {
+                        unKeepAlive: true
+                    }
+                }, {
+                    path: 'example3',
+                    name: 'example3',
+                    component: () => import( './demo/keep-alive/example3.vue' )
+                } ]
             } ]
         },
         {
