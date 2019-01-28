@@ -32,5 +32,13 @@ export default class TestCom extends Vue {
     onCheckedChange ( old: Number, val: Number ) {
         console.log( 'changeChecked:', old, val )
     }
+
+    mounted () {
+        console.log( 'this:', this )
+
+        let hasInstantiated = this.$router.resolve( { name: 'demo' } )
+
+        console.log( 'routers:', hasInstantiated )
+    }
 }
 </script>

@@ -43,5 +43,13 @@ export default class VuexPluginsImp extends Vue {
         // 这叫自找麻烦, 用什么 ts
         ( this as any ).addCount()
     }
+
+    mounted () {
+        console.log( 'this:', this )
+
+        let hasInstantiated = this.$router.resolve( { name: 'demo' } )
+
+        console.log( 'routers:', hasInstantiated )
+    }
 }
 </script>
