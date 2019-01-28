@@ -2,6 +2,11 @@
     <div id="demo">
         <router-view />
         <VModel v-model="checked"></VModel>
+        <button class="add-router" @click="addRouter">点击动态添加路由</button>
+        <br />
+        <button @click="$router.push( { name: 'async-router' } )">
+            点击跳转到 async-router
+        </button>
     </div>
 </template>
 
@@ -39,6 +44,14 @@ export default class TestCom extends Vue {
         let hasInstantiated = this.$router.resolve( { name: 'demo' } )
 
         console.log( 'routers:', hasInstantiated )
+    }
+
+    addRouter () {
+        this.$router.addRoutes( [ {
+            path: 'async-router',
+            name: 'async-router',
+            component: () => import( '@/demo/async-router.vue' ),
+        } ] )
     }
 }
 </script>
