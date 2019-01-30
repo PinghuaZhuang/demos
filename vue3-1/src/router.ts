@@ -60,6 +60,10 @@ export default new Router({
                     name: 'example3',
                     component: () => import( './demo/keep-alive/example3.vue' )
                 } ]
+            }, {
+                path: 'v-for',
+                name: 'v-for',
+                component: () => import( './demo/v-for.vue' )
             } ]
         },
         {
