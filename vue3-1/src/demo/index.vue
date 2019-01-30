@@ -47,11 +47,13 @@ export default class TestCom extends Vue {
     }
 
     addRouter () {
-        this.$router.addRoutes( [ {
-            path: 'async-router',
-            name: 'async-router',
-            component: () => import( '@/demo/async-router.vue' ),
-        } ] )
+        window.setTimeout( () => {
+            this.$router.addRoutes( [ {
+                path: 'async-router',
+                name: 'async-router',
+                component: () => import( '@/demo/async-router.vue' ),
+            } ] )
+        }, 5000 )
     }
 }
 </script>
