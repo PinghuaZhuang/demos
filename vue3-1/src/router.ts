@@ -63,7 +63,7 @@ export default new Router({
             }, {
                 path: 'v-for',
                 name: 'v-for',
-                component: () => import( './demo/v-for.vue' )
+                component: () => import( './demo/v-for' )
             } ]
         },
         {
