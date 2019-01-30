@@ -70,6 +70,10 @@ export default new Router({
                 path: 'axios',
                 name: 'axios',
                 component: () => import( './plugins/axios.vue' )
+            }, {
+                path: 'qrcode',
+                name: 'qrcode',
+                component: () => import( './plugins/qrcode.jsx' )
             } ]
         }
     ]
