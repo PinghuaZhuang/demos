@@ -17,6 +17,6 @@ export default class VFor extends Vue {
     public lis: Array<string> = [ 'a', 'b', 'c', 'd' ]
 
     changeLiHtml ( index: number ) {
-        this.$set( this.lis, index, 'xxx' )
+        this.$set( this.lis, index, this.lis[ index ] + 'x' )
     }
 }
