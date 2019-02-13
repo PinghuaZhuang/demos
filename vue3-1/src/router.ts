@@ -68,6 +68,10 @@ export default new Router({
                 path: 'slot',
                 name: 'slot',
                 component: () => import( '@/demo/slot/index.vue' )
+            }, {
+                path: 'v-model',
+                name: 'v-model',
+                component: () => import( '@/demo/v-model/index.vue' )
             } ]
         },
         {
