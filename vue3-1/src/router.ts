@@ -30,16 +30,16 @@ export default new Router({
         {
             path: '/test/:color?',
             name: 'test',
-            component: () => import( './views/test/index.vue' )
+            component: () => import( '@/views/test/index.vue' )
         },
         {
             path: '/demo',
             name: 'demo',
-            component: () => import( './demo/index.vue' ),
+            component: () => import( '@/demo/index.vue' ),
             children: [ {
                 path: 'vuex-plugins',
                 name: 'vuex-plugins',
-                component: () => import( './demo/vuex-plugins.vue' )
+                component: () => import( '@/demo/vuex-plugins.vue' )
             }, {
                 path: 'keep-alive',
                 name: 'keep-alive',
@@ -63,17 +63,21 @@ export default new Router({
             }, {
                 path: 'v-for',
                 name: 'v-for',
-                component: () => import( './demo/v-for' )
+                component: () => import( '@/demo/v-for' )
+            }, {
+                path: 'slot',
+                name: 'slot',
+                component: () => import( '@/demo/slot/index.vue' )
             } ]
         },
         {
             path: '/plugins',
             name: 'plugins',
-            component: () => import( './plugins/index.vue' ),
+            component: () => import( '@/plugins/index.vue' ),
             children: [ {
                 path: 'axios',
                 name: 'axios',
-                component: () => import( './plugins/axios.vue' )
+                component: () => import( '@/plugins/axios.vue' )
             }, {
                 path: 'qrcode',
                 name: 'qrcode',
