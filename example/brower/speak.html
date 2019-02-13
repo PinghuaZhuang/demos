@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 浏览器说话 -->
+    <button id="btn">speak</button>
+
+    <script>
+        function speak () {
+            let speech = new SpeechSynthesisUtterance( 'Hello~' )
+            speechSynthesis.speak( speech )
+        }
+
+        // 不能触发
+        window.onload = speak
+
+        document.querySelector( '#btn' ).onclick = speak
+    </script>
+</body>
+</html>
