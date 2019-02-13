@@ -1,7 +1,7 @@
 import { Component, Provide, Vue, Prop } from 'vue-property-decorator'
 
 // 组件
-import VModel from './v-model.vue'
+import VModel from '@/demo/v-model/v-model.vue'
 
 @Component
 export default class VFor extends Vue {
