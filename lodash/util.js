@@ -76,6 +76,6 @@ var data2 = [
     { a: '1', b: '2' },
     { a: '3', b: '2' },
     { a: '4', b: '1' },
- ]
+]
 var ret5 = _.filter( data2, _.matches( { a: '1', b: '2' } ) )
 console.log( 'matches:', ret5 )
