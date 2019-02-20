@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>横竖屏切换事件</title>
+    <script src="//cdn.jsdelivr.net/npm/eruda"></script>
+    <script>eruda.init();</script>
+</head>
+<body>
+
+    <main>
+        <h3>xxxxxxxxxxxxxxx</h3>
+        <h3>xxxxxxxxxxxxxxx</h3>
+        <h3>xxxxxxxxxxxxxxx</h3>
+        <h3>xxxxxxxxxxxxxxx</h3>
+        <h3>xxxxxxxxxxxxxxx</h3>
+        <h3>xxxxxxxxxxxxxxx</h3>
+        <h3>xxxxxxxxxxxxxxx</h3>
+        <h3>xxxxxxxxxxxxxxx</h3>
+        <h3>xxxxxxxxxxxxxxx</h3>
+        <h3>xxxxxxxxxxxxxxx</h3>
+        <h3>xxxxxxxxxxxxxxx</h3>
+        <h3>xxxxxxxxxxxxxxx</h3>
+        <h3>xxxxxxxxxxxxxxx</h3>
+        <h3>xxxxxxxxxxxxxxx</h3>
+        <input type="text" value="content">
+        <h3>xxxxxxxxxxxxxxx</h3>
+        <h3>xxxxxxxxxxxxxxx</h3>
+        <h3>xxxxxxxxxxxxxxx</h3>
+    </main>
+    <footer>
+        <input type="text" value="fixed">
+    </footer>
+
+    <script>
+        window.addEventListener( 'orientationchange', function ( e ) {
+            console.log( 'orientationchange:', e, window.orientation )
+        } )
+    </script>
+
+</body>
+</html>

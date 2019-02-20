@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>keyboard</title>
+    <style>
+        html, body {
+            /* width: 100%;
+            height: 100%;
+            overflow: hidden; */
+            padding-bottom: 10px;
+            background-color: blue;
+        }
+        footer input {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .mask {
+            width: 100%;
+            height: 34px;
+            background-color: black;
+            /* display: none; */
+        }
+
+        /* @media only screen and (device-width: 375px) and (device-height: 812px) and
+        (-webkit-device-pixel-ratio: 3) {
+            .mask {
+                width: 100%;
+                height: 34px;
+                background-color: red;
+            }
+        } */
+    </style>
+
+    <script src="//cdn.jsdelivr.net/npm/eruda"></script>
+    <script>eruda.init();</script>
+</head>
+<body>
+
+    <main>
+        <h3>xxxxxxxxxxxxxxx</h3>
+        <h3>xxxxxxxxxxxxxxx</h3>
+        <h3>xxxxxxxxxxxxxxx</h3>
+        <h3>xxxxxxxxxxxxxxx</h3>
+        <h3>xxxxxxxxxxxxxxx</h3>
+        <h3>xxxxxxxxxxxxxxx</h3>
+        <h3>xxxxxxxxxxxxxxx</h3>
+        <h3>xxxxxxxxxxxxxxx</h3>
+        <h3>xxxxxxxxxxxxxxx</h3>
+        <h3>xxxxxxxxxxxxxxx</h3>
+        <h3>xxxxxxxxxxxxxxx</h3>
+        <h3>xxxxxxxxxxxxxxx</h3>
+        <h3>xxxxxxxxxxxxxxx</h3>
+        <h3>xxxxxxxxxxxxxxx</h3>
+        <input type="text" value="content">
+        <h3>xxxxxxxxxxxxxxx</h3>
+        <h3>xxxxxxxxxxxxxxx</h3>
+        <h3>xxxxxxxxxxxxxxx</h3>
+    </main>
+    <footer>
+        <input type="text" value="fixed">
+    </footer>
+    <div class="mask"></div>
+
+    <script>
+        /* fixed 可以使用了 ? */
+        window.onload = function () {
+
+        }
+        window.onresize = function () {
+
+            console.log( 'height:', window.innerHeight )
+
+            if ( 12 ) {
+
+            }
+
+        }
+    </script>
+
+</body>
+</html>
