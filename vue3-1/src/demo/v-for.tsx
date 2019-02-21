@@ -19,7 +19,7 @@ export default class VFor extends Vue {
             <h1>V-For</h1>
             <ul>{ lis }</ul>
             {/* 这里不能使用 vue 模板语法 */}
-            <VModel { ...props } checked={ this.val } onXxx={ this.xxx.bind( this ) }/>
+            {/* <VModel { ...props } checked={ this.val } onXxx={ this.xxx.bind( this ) }/> */}
         </div> )
     }
 
