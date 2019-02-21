@@ -72,6 +72,10 @@ export default new Router({
                 path: 'v-model',
                 name: 'v-model',
                 component: () => import( '@/demo/v-model/index.vue' )
+            }, {
+                path: 'jsx',
+                name: 'jsx',
+                component: () => import( '@/demo/jsx/index.tsx' )
             } ]
         },
         {
