@@ -76,6 +76,10 @@ export default new Router({
                 path: 'jsx',
                 name: 'jsx',
                 component: () => import( '@/demo/jsx/index.tsx' )
+            }, {
+                path: 'v-bind',
+                name: 'v-bind',
+                component: () => import( '@/demo/v-bind/index.vue' )
             } ]
         },
         {
