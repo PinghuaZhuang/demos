@@ -39,11 +39,18 @@ module.exports = {
         //     .set('base',resolve('src/base'))
 
         // console.log( 'xxxx:', config.plugins );
+
+        // 修改模板文件位置
         config
             .plugin('html')
-            .tap(args => {
-                args[0].template = resolve( './src/index.html' )
-                return args
-            })
+                .tap(args => {
+                    args[0].template = resolve( './src/index.html' )
+                    return args
+                })
+
+        // 定义全局常量
+        config
+            .plugin('env')
+                .use(require.resolve('webpack/lib/EnvironmentPlugin'), [{ 'XXX': 'aaa' }]);
       }
 }

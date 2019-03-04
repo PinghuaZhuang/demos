@@ -80,6 +80,10 @@ export default new Router({
                 path: 'v-bind',
                 name: 'v-bind',
                 component: () => import( '@/demo/v-bind/index.vue' )
+            }, {
+                path: 'store',
+                name: 'store',
+                component: () => import( '@/demo/store/index.vue' )
             } ]
         },
         {

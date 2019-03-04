@@ -43,7 +43,8 @@ var cache: Cache = {
 
 var state = {
     count: 0,
-    color: 'red'
+    color: 'red',
+    lang: 'en'
 }
 
 var store = new Vuex.Store( {
@@ -53,7 +54,7 @@ var store = new Vuex.Store( {
             num == null ?
                 state.count++ :
                 state.count + num
-        }
+        },
     },
     actions: {
 
