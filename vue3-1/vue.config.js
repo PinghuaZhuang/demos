@@ -51,7 +51,7 @@ module.exports = {
         // 定义全局常量
         config
             .plugin('env')
-                .use(require.resolve('webpack/lib/EnvironmentPlugin'), [{ 'XXX': 'aaa' }]);
+                .use(require.resolve('webpack/lib/EnvironmentPlugin'), [{ 'XXX': 'aaa' }])
     },
 
     // css: {
