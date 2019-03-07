@@ -1,8 +1,8 @@
 const path = require('path')
 
-function resolve (dir) {
+function resolve(dir) {
     return path.join(__dirname, dir)
-  }
+}
 
 module.exports = {
     /*
@@ -10,8 +10,8 @@ module.exports = {
         不能使用浅拷贝
     */
     configureWebpack: config => {
-        // console.log( config, 'xxxxxxxxxxxxxxxxxxxxx' );
-        config.resolve.alias[ '@types' ] = '@/types'
+        // console.log(config, 'xxxxxxxxxxxxxxxxxxxxx');
+        config.resolve.alias['@types'] = '@/types'
         // Object.assign( config, {
         //     resolve: {
         //         alias: {
@@ -19,6 +19,45 @@ module.exports = {
         //         }
         //     }
         // } );
+
+        /* 代码抽离 */
+        // config 中没有 optimization 选项的
+        config.optimization = {
+            splitChunks: {
+                cacheGroups: {
+                    default: false,
+                    vendor: false,
+                    common: {
+                        chunks: "all",
+                        test: /common.js/,
+                        name: "common",
+                        minChunks: 1,
+                        maxInitialRequests: 5,
+                        minSize: 0,
+                        priority: 60
+                    },
+                    // 优先级高
+                    // common2: {
+                    //     chunks: "all",
+                    //     test: /assets/,
+                    //     name: "common2",
+                    //     minChunks: 1,
+                    //     maxInitialRequests: 5,
+                    //     minSize: 0,
+                    //     priority: 60
+                    // },
+                    common3: {
+                        chunks: "all",
+                        test: /t.js/,
+                        name: "common3",
+                        minChunks: 1,
+                        maxInitialRequests: 5,
+                        minSize: 0,
+                        priority: 60
+                    }
+                }
+            }
+        }
     },
 
     chainWebpack: config => {
@@ -43,10 +82,10 @@ module.exports = {
         // 修改模板文件位置
         config
             .plugin('html')
-                .tap(args => {
-                    args[0].template = resolve( './src/index.html' )
-                    return args
-                })
+            .tap(args => {
+                args[0].template = resolve('./src/index.html')
+                return args
+            })
 
         // 全局映入 less 文件
         const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
@@ -55,7 +94,7 @@ module.exports = {
         // 定义全局常量
         config
             .plugin('env')
-                .use(require.resolve('webpack/lib/EnvironmentPlugin'), [{ 'XXX': 'aaa' }])
+            .use(require.resolve('webpack/lib/EnvironmentPlugin'), [{ 'XXX': 'aaa' }])
     },
 
     /* 多页面设置 */
@@ -81,38 +120,50 @@ module.exports = {
     //     subpage: 'src/subpage/main.ts'
     // },
 
-    /* 全局应用 less 变量 */
+    /* 插件 */
     pluginOptions: {
+        /* 全局应用 less 变量 */
         'style-resources-loader': {
-                preProcessor: 'less',
-                patterns: [
-                    path.resolve(__dirname, './src/less/params.less')
-                ]
-        }
+            preProcessor: 'less',
+            patterns: [
+                path.resolve(__dirname, './src/less/params.less')
+            ]
+        },
+        /* 抽离代码, 没有效果 */
+        // splitChunks: {
+        //     common: {
+        //         test: /[\\/]assets[\\/]/,
+        //         priority: -10
+        //     },
+        //     commonxxx: {
+        //         test: /[\\/]common.js]/,
+        //         priority: -10
+        //     }
+        // }
     },
 
     /* 本地服务器 */
     devServer: {
         // proxy: 'http://wthrcdn.etouch.cn',
-        before ( app ) {
-            app.get( '/local/get',
-                function ( req, res ) {
+        before(app) {
+            app.get('/local/get',
+                function (req, res) {
                     // console.log( 'xxxxxx:', req, res );
-                    res.send( {
+                    res.send({
                         color: 'blue'
-                    } )
-                } )
+                    })
+                })
         }
-    }
+    },
 }
 
 // 全局使用 less 变量的方法
-function addStyleResource (rule) {
+function addStyleResource(rule) {
     rule.use('style-resource')
-      .loader('style-resources-loader')
-      .options({
-        patterns: [
-          path.resolve(__dirname, './src/less/params'),
-        ],
-      })
-  }
+        .loader('style-resources-loader')
+        .options({
+            patterns: [
+                path.resolve(__dirname, './src/less/params'),
+            ],
+        })
+}

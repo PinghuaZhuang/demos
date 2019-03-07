@@ -1,14 +1,19 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <h1>{{ msg }} {{ color }} {{ color2 }}</h1>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
+import { COLOR } from '@/assets/abcde/common.js'
+import { COLOR2 } from '@/assets/a2/t.js'
+
 @Component
 export default class HelloWorld extends Vue {
+  color = COLOR
+  color2 = COLOR2
   @Prop() private msg!: string;
 }
 </script>
