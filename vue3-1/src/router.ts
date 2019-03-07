@@ -84,6 +84,10 @@ export default new Router({
                 path: 'store',
                 name: 'store',
                 component: () => import( '@/demo/store/index.vue' )
+            }, {
+                path: 'less',
+                name: 'less',
+                component: () => import( '@/demo/less/index.vue' )
             } ]
         },
         {

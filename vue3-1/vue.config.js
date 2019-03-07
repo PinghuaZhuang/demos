@@ -52,5 +52,32 @@ module.exports = {
         config
             .plugin('env')
                 .use(require.resolve('webpack/lib/EnvironmentPlugin'), [{ 'XXX': 'aaa' }]);
-      }
+    },
+
+    // css: {
+    //     loaderOptions: {
+    //         less: {
+    //             // 没有生效
+    //             data: `@import "./less/params.less";`
+    //         }
+    //     }
+    // },
+
+    // pluginOptions: {
+    //     'style-resources-loader': {
+    //             preProcessor: 'less',
+    //             patterns: [ '@/less/params.less' ]
+    //     }
+    // }
+
+    // rules: [{
+    //     test: /\.less$/,
+    //     use: [ 'style-loader', 'css-loader', 'less-loader', {
+    //         loader: 'style-resources-loader',
+    //         options: {
+    //             patterns: path.resolve(__dirname, 'path/to/less/variables/*.less'),
+    //             injector: 'append'
+    //         }
+    //     } ]
+    // }]
 }
