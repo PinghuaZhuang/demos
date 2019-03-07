@@ -15,7 +15,7 @@ export default class Less extends Vue {
 <style lang="less" scoped>
 #less {
     h1 {
-        // color: @color;
+        color: @color;
     }
 }
 </style>

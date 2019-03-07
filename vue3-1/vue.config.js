@@ -41,12 +41,16 @@ module.exports = {
         // console.log( 'xxxx:', config.plugins );
 
         // 修改模板文件位置
-        config
-            .plugin('html')
-                .tap(args => {
-                    args[0].template = resolve( './src/index.html' )
-                    return args
-                })
+        // config
+        //     .plugin('html')
+        //         .tap(args => {
+        //             args[0].template = resolve( './src/index.html' )
+        //             return args
+                // })
+
+        // 全局映入 less 文件
+        const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
+        types.forEach(type => addStyleResource(config.module.rule('less').oneOf(type)))
 
         // 定义全局常量
         config
@@ -54,30 +58,46 @@ module.exports = {
                 .use(require.resolve('webpack/lib/EnvironmentPlugin'), [{ 'XXX': 'aaa' }])
     },
 
-    // css: {
-    //     loaderOptions: {
-    //         less: {
-    //             // 没有生效
-    //             data: `@import "./less/params.less";`
-    //         }
-    //     }
-    // },
+    pages: {
+        index: {
+            // page 的入口
+            entry: 'src/main.ts',
+            // 模板来源
+            template: 'src/index.html',
+            // 在 dist/index.html 的输出
+            filename: 'index.html',
+            // 当使用 title 选项时，
+            // template 中的 title 标签需要是 <title><%= htmlWebpackPlugin.options.title %></title>
+            title: 'Index Page',
+            // 在这个页面中包含的块，默认情况下会包含
+            // 提取出来的通用 chunk 和 vendor chunk。
+            chunks: ['chunk-vendors', 'chunk-common', 'index']
+        },
+        // 当使用只有入口的字符串格式时，
+        // 模板会被推导为 `public/subpage.html`
+        // 并且如果找不到的话，就回退到 `public/index.html`。
+        // 输出文件名会被推导为 `subpage.html`。
+        subpage: 'src/subpage/main.ts'
+    },
 
-    // pluginOptions: {
-    //     'style-resources-loader': {
-    //             preProcessor: 'less',
-    //             patterns: [ '@/less/params.less' ]
-    //     }
-    // }
-
-    // rules: [{
-    //     test: /\.less$/,
-    //     use: [ 'style-loader', 'css-loader', 'less-loader', {
-    //         loader: 'style-resources-loader',
-    //         options: {
-    //             patterns: path.resolve(__dirname, 'path/to/less/variables/*.less'),
-    //             injector: 'append'
-    //         }
-    //     } ]
-    // }]
+    // 全局应用 less 变量
+    pluginOptions: {
+        'style-resources-loader': {
+                preProcessor: 'less',
+                patterns: [
+                    path.resolve(__dirname, './src/less/params.less')
+                ]
+        }
+    }
 }
+
+// 全局使用 less 变量的方法
+function addStyleResource (rule) {
+    rule.use('style-resource')
+      .loader('style-resources-loader')
+      .options({
+        patterns: [
+          path.resolve(__dirname, './src/less/params'),
+        ],
+      })
+  }
