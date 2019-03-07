@@ -9,6 +9,7 @@ import { Component, Provide, Vue, Watch } from 'vue-property-decorator'
 
 // plugins
 import axios from 'axios'
+import $ from 'jquery'
 
 // 组件
 // import VModel from './v-model.vue'
@@ -51,6 +52,7 @@ export default class Plugins extends Vue {
             return config
         } )
 
+        // var axPromise = axio.get( 'http://wthrcdn.etouch.cn/weather_mini', {
         var axPromise = ax.get( 'http://wthrcdn.etouch.cn/weather_mini', {
 
             // get: params, post: data
@@ -59,11 +61,27 @@ export default class Plugins extends Vue {
             }
         } )
 
-        console.dir( axPromise )
+        // var doubanPr = axios.get( 'http://api.douban.com/v2/movie/in_theaters?count=10&start=0' )
 
-        axPromise.then( data => {
-            console.log( 'data:', data )
+        // doubanPr.then( data => {
+        //     console.log( 'doubanData:', data )
+        // } )
+
+        var testLocal = axios.get( '/local/get' )
+
+        testLocal.then( data => {
+            console.log( 'local/get:', data )
         } )
+
+        // $.get( 'http://api.douban.com/v2/movie/in_theaters?count=10&start=0', data => {
+        //     console.log( 'doubanData:', data )
+        // } )
+
+        // console.dir( axPromise )
+
+        // axPromise.then( data => {
+        //     console.log( 'data:', data )
+        // } )
     }
 }
 </script>
