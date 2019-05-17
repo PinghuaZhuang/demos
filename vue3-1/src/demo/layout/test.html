@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            font-size: 10px;
+            position: relative;
+            left: 0;
+            top: 0;
+        }
+
+        .demo {
+            width: 200px;
+            height: 300px;
+            background-color: black;
+            position: absolute;
+            left: 10rem;
+            top: 20rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="demo">
+
+    </div>
+    <script>
+
+        (function () {
+            function resize() {
+                let html = document.querySelector('html')
+                let body = document.body
+                html.style.fontSize = window.innerWidth / 1920 * 10 + 'px'
+                body.style.fontSize = window.innerWidth / 1920 * 10 + 'px'
+            }
+            resize()
+            window.addEventListener('resize', resize)
+        })()
+    </script>
+</body>
+
+</html>
