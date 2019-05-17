@@ -106,6 +106,10 @@ export default new Router({
                 path: 'qrcode',
                 name: 'qrcode',
                 component: () => import( './plugins/qrcode.jsx' )
+            }, {
+                path: 'tween',
+                name: 'tween',
+                component: () => import( './plugins/TWEEN/index.vue' )
             } ]
         }
     ]
