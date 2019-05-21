@@ -85,6 +85,10 @@ export default new Router({
                 name: 'store',
                 component: () => import( '@/demo/store/index.vue' )
             }, {
+                path: 'vuex-class',
+                name: 'vuex-class',
+                component: () => import( '@/demo/store/class.vue' )
+            }, {
                 path: 'less',
                 name: 'less',
                 component: () => import( '@/demo/less/index.vue' )

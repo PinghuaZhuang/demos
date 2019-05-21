@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import Item from './Class/Item'
 
 // 内置 Logger 对象
 import createLogger from 'vuex/dist/logger'
@@ -44,6 +45,7 @@ var cache: Cache = {
 var state = {
     count: 0,
     color: 'red',
+    item: new Item(),
     lang: 'en'
 }
 
@@ -55,6 +57,10 @@ var store = new Vuex.Store( {
                 state.count++ :
                 state.count + num
         },
+
+        setColor ( state, color: string ) {
+            state.item.setColor( color )
+        }
     },
     actions: {
 
