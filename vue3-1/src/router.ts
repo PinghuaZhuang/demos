@@ -96,6 +96,10 @@ export default new Router({
                 path: 'layout',
                 name: 'layout',
                 component: () => import( '@/demo/layout/index.vue' )
+            }, {
+                path: 'promise',
+                name: 'promise',
+                component: () => import( '@/demo/promise/index.vue' )
             } ]
         },
         {
