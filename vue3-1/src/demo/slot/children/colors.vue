@@ -1,7 +1,7 @@
 <template>
     <div class="slot-colors">
         <h2>作用域插槽</h2>
-        <slot name="color" :colors="colors"></slot>
+        <slot name="color" v-bind:colors="colors"></slot>
     </div>
 </template>
 
