@@ -10,8 +10,9 @@ module.exports = {
         不能使用浅拷贝
     */
     configureWebpack: config => {
-        // console.log(config, 'xxxxxxxxxxxxxxxxxxxxx');
+        console.log(config, 'xxxxxxxxxxxxxxxxxxxxx');
         config.resolve.alias['@types'] = '@/types'
+        config.resolve.alias['@less'] = resolve( '../../less/' )
         // Object.assign( config, {
         //     resolve: {
         //         alias: {
@@ -19,6 +20,7 @@ module.exports = {
         //         }
         //     }
         // } );
+        // config.resolve.modules.push( resolve( '../../less/src/' ) )
 
         /* 代码抽离 */
         // config 中没有 optimization 选项的
@@ -58,6 +60,9 @@ module.exports = {
                 }
             }
         }
+
+        // webpack 运行环境
+        config.target = 'web'
     },
 
     chainWebpack: config => {
@@ -88,8 +93,8 @@ module.exports = {
             })
 
         // 全局映入 less 文件
-        const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
-        types.forEach(type => addStyleResource(config.module.rule('less').oneOf(type)))
+        // const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
+        // types.forEach(type => addStyleResource(config.module.rule('less').oneOf(type)))
 
         // 定义全局常量
         config
@@ -126,7 +131,9 @@ module.exports = {
         'style-resources-loader': {
             preProcessor: 'less',
             patterns: [
-                path.resolve(__dirname, './src/less/params.less')
+                path.resolve(__dirname, './src/less/params.less'),
+                resolve( '../../less/mixins/index.less' ),
+                resolve( '../../less/variable.less' ),
             ]
         },
         /* 抽离代码, 没有效果 */
@@ -155,15 +162,24 @@ module.exports = {
                 })
         }
     },
+
+    // 配置 css-loader
+    css: {
+        loaderOptions: {
+            less: {
+                javascriptEnabled: true
+            }
+        }
+    },
 }
 
 // 全局使用 less 变量的方法
-function addStyleResource(rule) {
-    rule.use('style-resource')
-        .loader('style-resources-loader')
-        .options({
-            patterns: [
-                path.resolve(__dirname, './src/less/params'),
-            ],
-        })
-}
+// function addStyleResource(rule) {
+//     rule.use('style-resource')
+//         .loader('style-resources-loader')
+//         .options({
+//             patterns: [
+//                 path.resolve(__dirname, './src/less/params'),
+//             ],
+//         })
+// }
