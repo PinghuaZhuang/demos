@@ -163,6 +163,11 @@ module.exports = {
         }
     },
 
+    // package.json
+    // vuePlugins: {
+    //     service: [ './plugins/server' ]
+    // },
+
     // 配置 css-loader
     css: {
         loaderOptions: {

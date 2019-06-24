@@ -46,6 +46,10 @@ export default class Plugins extends Vue {
             }
         } )
 
+        axios.get( '/local/get2' ).then( data => {
+            console.log( 'serverxxxx', data )
+        } )
+
         // axios 拦截器
         ax.interceptors.request.use( ( config ) => {
             console.log( 'config:', config )

@@ -120,15 +120,15 @@ export default new Router({
                 component: () => import( './plugins/TWEEN/index.vue' )
             } ]
         },
-        {
-            path: '/test2',
-            name: 'test2',
-            component: () => import( './test/index.vue' )
-        },
-        {
-            path: '/less',
-            name: 'less',
-            component: () => import( './less/index.vue' )
-        }
+        // {
+        //     path: '/test2',
+        //     name: 'test2',
+        //     component: () => import( './test/index.vue' )
+        // },
+        // {
+        //     path: '/less',
+        //     name: 'less',
+        //     component: () => import( './less/index.vue' )
+        // }
     ]
 })

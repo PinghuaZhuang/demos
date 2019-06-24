@@ -4,8 +4,15 @@ import Vue from 'vue';
 import App from './App';
 import router from './router';
 import store from './store';
+import axios from 'axios'
+
+axios.get( '/local/get' ).then( data => {
+    console.log( 'xxxxxx', data )
+} )
 
 Vue.config.productionTip = false;
+
+
 
 /* eslint-disable no-new */
 window.vm = new Vue( {

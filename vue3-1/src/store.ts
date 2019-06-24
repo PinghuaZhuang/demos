@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import Item from './Class/Item'
+import Test from './assets/test.js'
+console.log( 'name', Test.name )
 
 // 内置 Logger 对象
 import createLogger from 'vuex/dist/logger'
