@@ -6,8 +6,8 @@ import router from './router';
 import store from './store';
 import axios from 'axios'
 
-axios.get( '/local/get' ).then( data => {
-    console.log( 'xxxxxx', data )
+axios.get( '/local/get2' ).then( data => {
+    console.log( 'xxxxxx2', data )
 } )
 
 Vue.config.productionTip = false;

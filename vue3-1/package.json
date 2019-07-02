@@ -7,9 +7,6 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit"
   },
-  "vuePlugins": {
-    "service": [ "./plugins/server" ]
-  },
   "dependencies": {
     "axios": "^0.18.0",
     "jquery": "^3.3.1",

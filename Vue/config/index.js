@@ -40,7 +40,17 @@ module.exports = {
     // https://vue-loader.vuejs.org/en/options.html#cachebusting
     cacheBusting: true,
 
-    cssSourceMap: true
+    cssSourceMap: true,
+
+    // 无效
+    befor: function ( app ) {
+      app.get('/local/get2',
+          function (req, res) {
+              res.send({
+                  color: 'blue2'
+              })
+          })
+    }
   },
 
   build: {
