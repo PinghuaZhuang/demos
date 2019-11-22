@@ -118,6 +118,10 @@ export default new Router({
                 path: 'tween',
                 name: 'tween',
                 component: () => import( './plugins/TWEEN/index.vue' )
+            }, {
+                path: 'xlxs',
+                name: 'xlxs',
+                component: () => import( './plugins/xlxs.vue' )
             } ]
         },
         // {

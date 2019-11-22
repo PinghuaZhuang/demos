@@ -16,7 +16,8 @@
     "vue-class-component": "^6.0.0",
     "vue-property-decorator": "^7.0.0",
     "vue-router": "^3.0.1",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "xlsx": "^0.15.2"
   },
   "devDependencies": {
     "@tweenjs/tween.js": "^17.3.0",
