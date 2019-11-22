@@ -121,7 +121,11 @@ export default new Router({
             }, {
                 path: 'xlxs',
                 name: 'xlxs',
-                component: () => import( './plugins/xlxs.vue' )
+                component: () => import( './plugins/js-xlsx/xlxs.vue' )
+            }, {
+                path: 'xlxs-upload',
+                name: 'xlxs-upload',
+                component: () => import( './plugins/js-xlsx/index.vue' )
             } ]
         },
         // {

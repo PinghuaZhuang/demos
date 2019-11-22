@@ -44,6 +44,7 @@ export default {
 				// pre-process data
 				var binary = "";
 				var bytes = new Uint8Array(e.target.result);
+				console.log( 'xxxxxxxx', e )
 				var length = bytes.byteLength;
 				for (var i = 0; i < length; i++) {
 					binary += String.fromCharCode(bytes[i]);
