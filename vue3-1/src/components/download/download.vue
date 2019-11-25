@@ -5,7 +5,7 @@
         :download="downloadName"
         @click.prevent="handleClick">
 
-        {{ label }}
+        <slot>{{ label }}</slot>
     </a>
 </template>
 
