@@ -4,6 +4,7 @@
         <Colors #color="data">
             <!-- 默认访问的当前组件的作用域, 可以利用 slot-scope 访问子组件的作用域 -->
             <!-- <h3 slot="color" slot-scope="data">{{ data.colors.color }}</h3> -->
+            <!-- 这里使用 slot-scope 的时候不能使用 : -->
             <h3 slot="color">{{ data.colors.color }}</h3>
         </Colors>
     </div>

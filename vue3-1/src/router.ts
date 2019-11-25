@@ -138,6 +138,15 @@ export default new Router({
                     component: () => import( '@/components/download/index.vue' )
                 }
             ]
+        }, {
+            path: '/element-ui',
+            name: 'element-ui',
+            component: () => import( '@/element-ui/index.vue' ),
+            children: [ {
+                path: 'table',
+                name: 'el-table',
+                component: () => import( '@/element-ui/table.vue' )
+            } ]
         }
         // {
         //     path: '/test2',
