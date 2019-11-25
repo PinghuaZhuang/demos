@@ -1,5 +1,5 @@
 <template>
-  <el-table :data="datas" style="width: 100%"
+  <el-table :data="datas" style="width: 100%" stripe :border="true" size="mini"
     height="300">
     <el-table-column prop="date" label="日期" width="150" class="level-1"></el-table-column>
     <el-table-column label="配送信息">
@@ -75,6 +75,18 @@ export default {
                     city: '普陀区',
                     address: '上海市普陀区金沙江路 1518 弄',
                     zip: 200333
+                }
+            ],
+
+            // 外部传入的 component
+            header: [
+                {
+                    prop: 'xxx',
+                    value: 'xxxx',
+                    componten: {
+                        [ NORMAL ] : 1,
+                        [ EDIT ]: 2
+                    }
                 }
             ]
         }
