@@ -131,7 +131,27 @@ export default new Router({
                 name: 'pubuliu',
                 component: () => import( './plugins/pubuliu.vue' )
             } ]
-        },
+        }, {
+            path: '/components',
+            name: 'components',
+            component: () => import( '@/components/index.vue' ),
+            children: [
+                {
+                    path: 'download',
+                    name: 'download',
+                    component: () => import( '@/components/download/index.vue' )
+                }
+            ]
+        }, {
+            path: '/element-ui',
+            name: 'element-ui',
+            component: () => import( '@/element-ui/index.vue' ),
+            children: [ {
+                path: 'table',
+                name: 'el-table',
+                component: () => import( '@/element-ui/table.vue' )
+            } ]
+        }
         // {
         //     path: '/test2',
         //     name: 'test2',

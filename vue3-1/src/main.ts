@@ -10,6 +10,7 @@ Vue.use(ElementUI);
 
 Vue.config.productionTip = false
 
+/* eslint-disable */
 new Vue({
   router,
   store,
