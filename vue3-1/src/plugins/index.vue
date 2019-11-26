@@ -1,5 +1,7 @@
 <template>
-    <div id="plugins">
+    <div id="plugins" :style="{
+        height: '100%'
+    }">
         <router-view />
         <!-- <VModel v-model="checked"></VModel> -->
     </div>
@@ -34,3 +36,10 @@ export default class Plugins extends Vue {
     // }
 }
 </script>
+
+<style lang="less" scoped>
+#plugins {
+    width: 100%;
+    height: 100%;
+}
+</style>

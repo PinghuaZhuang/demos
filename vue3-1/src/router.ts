@@ -126,6 +126,10 @@ export default new Router({
                 path: 'xlxs-upload',
                 name: 'xlxs-upload',
                 component: () => import( './plugins/js-xlsx/index.vue' )
+            }, {
+                path: 'pubuliu',
+                name: 'pubuliu',
+                component: () => import( './plugins/pubuliu.vue' )
             } ]
         },
         // {
