@@ -151,7 +151,21 @@ export default new Router({
                 name: 'el-table',
                 component: () => import( '@/element-ui/table.vue' )
             } ]
+        },
+
+        {
+            path: '/animation',
+            name: 'animation',
+            component: () => import( '@/animation/index.vue' ),
+            children: [
+                {
+                    path: 'transition',
+                    name: 'transition',
+                    component: () => import( '@/animation/transition.vue' )
+                }
+            ]
         }
+
         // {
         //     path: '/test2',
         //     name: 'test2',
