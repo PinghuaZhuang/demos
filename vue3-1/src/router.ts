@@ -168,6 +168,19 @@ export default new Router({
                     component: () => import( '@/animation/transition.vue' )
                 }
             ]
+        },
+
+        {
+            path: '/fix',
+            name: 'fix',
+            component: () => import( '@/fix/index.vue' ),
+            children: [
+                {
+                    path: 'tabel',
+                    name: 'tabel',
+                    component: () => import( '@/fix/table.vue' )
+                }
+            ],
         }
 
         // {

@@ -176,6 +176,9 @@ module.exports = {
             }
         }
     },
+
+    // 默认会忽略 node_modules, 在这里显示转译
+    transpileDependencies: [ 'pl-table' ],
 }
 
 // 全局使用 less 变量的方法
