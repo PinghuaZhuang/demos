@@ -138,6 +138,10 @@ export default new Router({
                 path: 'pubuliu',
                 name: 'pubuliu',
                 component: () => import( './plugins/pubuliu.vue' )
+            }, {
+                path: 'normalizr',
+                name: 'normalizr',
+                component: () => import( './plugins/normalizr/index.vue' )
             } ]
         }, {
             path: '/components',
