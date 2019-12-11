@@ -100,6 +100,10 @@ export default new Router({
                 path: 'promise',
                 name: 'promise',
                 component: () => import( '@/demo/promise/index.vue' )
+            }, {
+                path: 'lodash',
+                name: 'lodash',
+                component: () => import( '@/demo/loadsh/index.vue' )
             } ]
         },
         {
