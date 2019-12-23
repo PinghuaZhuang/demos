@@ -104,6 +104,22 @@ export default new Router({
                 path: 'lodash',
                 name: 'lodash',
                 component: () => import( '@/demo/loadsh/index.vue' )
+            }, {
+                path: 'extend',
+                name: 'extend',
+                component: () => import( '@/demo/extend/index.vue' ),
+                children: [
+                    {
+                        path: 'exp1',
+                        name: 'exp1',
+                        component: () => import( '@/demo/extend/exp1.vue' )
+                    },
+                    {
+                        path: 'exp2',
+                        name: 'exp2',
+                        component: () => import( '@/demo/extend/exp2.vue' )
+                    }
+                ]
             } ]
         },
         {
