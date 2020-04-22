@@ -1,10 +1,13 @@
-# xxxx
+### Import
 
-## vue 中使用
+```js static
+import Zbutton from "@/components/button";
+```
+
+### JSX
 
 ```jsx
 import Zbutton from "@/components/button";
-
 /**
  * Component is described here.
  * @displayName Wonderful Button
@@ -16,6 +19,8 @@ export default {
   }
 }
 ```
+
+### VUE
 
 ```vue
 <template>
