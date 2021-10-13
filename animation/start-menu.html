@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>start-menu</title>
+  <script src="https://unpkg.com/packery@2.1/dist/packery.pkgd.js"></script>
+  <script src="https://unpkg.com/draggabilly@2/dist/draggabilly.pkgd.min.js"></script>
+  <style>
+    .grid-item {
+      width: 100px;
+      background-color: green;
+      height: 80px;
+    }
+    .grid-item--width2 {
+      width: 50%;
+    }
+    .grid {
+      position: relative;
+      background: red;
+      width: 900px;
+      height: 800px;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid" data-packery='{ "itemSelector": ".grid-item", "gutter": 50 }'>
+    <div class="grid-item"></div>
+    <div class="grid-item grid-item--width2"></div>
+    <div class="grid-item"></div>
+  </div>
+
+  <script>
+    var elem = document.querySelector('.grid');
+    console.log('elem', elem, Packery)
+    var pckry = new Packery( elem, {
+      // options
+      // itemSelector: '.grid-item',
+      // gutter: 10,
+      columnWidth: 100,
+    })
+    pckry.getItemElements().forEach( function( itemElem ) {
+      var draggie = new Draggabilly( itemElem );
+      pckry.bindDraggabillyEvents( draggie );
+    })
+  </script>
+</body>
+</html>

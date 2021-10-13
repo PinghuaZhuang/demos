@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>draggabilly demo</title>
+  <script src="https://unpkg.com/draggabilly@2/dist/draggabilly.pkgd.min.js"></script>
+  <style>
+    #container {
+      background: red;
+      width: 800px;
+      height: 800px;
+    }
+
+    .draggable {
+      background-color: green;
+      width: 80px;
+      height: 80px;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div class="draggable"></div>
+    <div class="draggable"></div>
+  </div>
+  <script>
+    var draggie = new Draggabilly( '.draggable', {
+      // containment: true,
+      // grid: [ 20, 20 ],
+      // axis: 'x',
+    })
+
+    draggie.on('dragMove', function(e, pointer, moveVector) {
+      var x = e.x
+      var y = e.y
+      // console.log('e', e, pointer, moveVector)
+      console.log('xy', x, y)
+
+      if (x >= 400) {
+        console.log('xy111111', x, y)
+        // draggie.setPosition(500, y)
+      }
+    })
+  </script>
+</body>
+</html>
