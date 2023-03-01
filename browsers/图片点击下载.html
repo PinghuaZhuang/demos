@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>图片点击下载</title>
+</head>
+<body>
+  <script>
+    function download() {
+      console.log(111);
+      var aEle = document.createElement('a');
+      aEle.href = 'https://avatars.githubusercontent.com/u/16497892?s=40&v=4';
+      aEle.click();
+    }
+  </script>
+  <img width="100%" src="https://avatars.githubusercontent.com/u/16497892?s=40&v=4" alt="" onclick="download()">
+</body>
+</html>
