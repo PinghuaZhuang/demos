@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    #demo {
+      width: 300px;
+      height: 300px;
+      background-color: red;
+      transform: rotate(45deg);
+
+      /* transform: translateX(30px) translateY(100px); */
+    }
+
+  </style>
+  <script src="https://unpkg.com/rematrix"></script>
+</head>
+
+<body>
+  <div id="demo">
+    这是一个DIV.
+  </div>
+
+  <script type="module">
+    console.log('Rematrix', Rematrix);
+    window.xxx = () => {
+      const demo = document.querySelector('#demo');
+      const transform = Rematrix.fromString(getComputedStyle(demo).transform);
+      const [x1, y1] = [150, 150];
+      const [x, y] = getComputedStyle(demo).transformOrigin.split(' ').map(o => Number.parseFloat(o))
+      // const transform2 = Rematrix.inverse(getComputedStyle(demo).transform);
+      const [dx, dy] = [x1 - x, y1 - y];
+
+      const newMx = [
+        Rematrix.translate(dx, dy),
+        transform,
+        Rematrix.translate(-dx, -dy),
+      ].reduce(Rematrix.multiply);
+      console.log(Rematrix.toString(newMx));
+      demo.style.transform = Rematrix.toString(newMx);
+    }
+  </script>
+  </div>
+</body>
+
+</html>
